@@ -1,0 +1,9 @@
+FROM postgres
+
+RUN mkdir /dvdrental
+
+COPY dvdrental.tar /dvdrental
+
+COPY test_data.csv /dvdrental
+
+COPY init-user-db.sh /docker-entrypoint-initdb.d
