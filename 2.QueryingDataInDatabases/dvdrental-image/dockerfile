@@ -3,6 +3,12 @@ FROM postgres
 RUN apt update && apt install -y vim
 
 RUN mkdir /dvdrental
+RUN mkdir -p /postgres/archive/base
+RUN mkdir -p /postgres/archive/wal
+
+RUN chown -R postgres:postgres /postgres/archive
+
+RUN chmod -R 700 /postgres/archive
 
 COPY dvdrental.tar /dvdrental
 
